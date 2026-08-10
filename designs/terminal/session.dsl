@@ -19,7 +19,7 @@ say|150|# a pipeline is not code that works. it is code that survives attempt 3.
 gap|100|
 cmd|300|curl -s traces/7c1e-ab3f | jq '.spans | length, .services | length'
 out|340|94        12        -- 94 spans across 12 services, one upload
-say|170|# microservices: the bug is never inside a service. it is between two of them.
+say|170|# microservices: each service works. the bug is in what happens between them.
 gap|100|
 cmd|280|claude mcp list
 out|300|  databases    ready    read-only, 4 tools

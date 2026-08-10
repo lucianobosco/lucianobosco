@@ -17,7 +17,7 @@ luciano@mlg ~ $ temporal workflow show -w ingest-2f9a --fields long
 
 luciano@mlg ~ $ curl -s traces/7c1e-ab3f | jq '.spans | length, .services | length'
 94        12        -- 94 spans across 12 services, one upload
-# microservices: the bug is never inside a service. it is between two of them.
+# microservices: each service works. the bug is in what happens between them.
 
 luciano@mlg ~ $ claude mcp list
   databases    ready    read-only, 4 tools
