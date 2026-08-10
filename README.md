@@ -43,8 +43,8 @@ luciano@mlg ~ $ claude mcp list
   databases    ready    read-only, 4 tools
   kubernetes   ready    read-only, 11 tools
   metrics      ready    read-only, 3 tools
-# 2026: the agents get read-only credentials and one skill per runbook.
-# it turns out the hard part was never the model. it was the plumbing.
+# mcp servers: how an agent reads production. read-only, so it can change nothing.
+# the model was never the hard part. wiring it safely to real systems is.
 
 luciano@mlg ~ $ mysql -h 10.24.6.11 -P 3306 -u readonly catalog
 ERROR 2003 (HY000): Can't connect to MySQL server on '10.24.6.11:3306' (110)
@@ -58,11 +58,7 @@ luciano@mlg ~ $ mysql -h 127.0.0.1 -P 13306 -u readonly catalog
 luciano@mlg ~ $ SELECT * FROM luciano.repos WHERE visibility = 'private';
 ERROR 1142 (42000): SELECT command denied to user 'visitor'@'github'
 -- 4 public repos. the other 14 years are on the other side of that error.
-
-luciano@mlg ~ $ tail -2 ~/notes/still-figuring-out.md
-  - whether p99 can be sold as a feature and not just an SLO
-  - what breaks first the day ingest doubles
-# 14 years in, that list only gets longer. that is the part I like.
+# 14 years in, the list of things I still want to break open keeps growing.
 ```
 
 The hostname and the table rows are invented; the constraint is not.

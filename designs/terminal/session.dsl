@@ -25,8 +25,8 @@ cmd|280|claude mcp list
 out|300|  databases    ready    read-only, 4 tools
 out|60|  kubernetes   ready    read-only, 11 tools
 out|60|  metrics      ready    read-only, 3 tools
-say|180|# 2026: the agents get read-only credentials and one skill per runbook.
-say|150|# it turns out the hard part was never the model. it was the plumbing.
+say|180|# mcp servers: how an agent reads production. read-only, so it can change nothing.
+say|150|# the model was never the hard part. wiring it safely to real systems is.
 gap|100|
 cmd|300|mysql -h 10.24.6.11 -P 3306 -u readonly catalog
 wait|600|
@@ -41,8 +41,4 @@ cmd|280|mysql -h 127.0.0.1 -P 13306 -u readonly catalog
 cmd|350|{k}SELECT{/} * {k}FROM{/} luciano.repos {k}WHERE{/} visibility = 'private';
 err|320|ERROR 1142 (42000): SELECT command denied to user 'visitor'@'github'
 say|150|-- 4 public repos. the other 14 years are on the other side of that error.
-gap|140|
-cmd|300|tail -2 ~/notes/still-figuring-out.md
-out|320|  - whether p99 can be sold as a feature and not just an SLO
-out|60|  - what breaks first the day ingest doubles
-say|900|# 14 years in, that list only gets longer. that is the part I like.
+say|900|# 14 years in, the list of things I still want to break open keeps growing.
