@@ -7,7 +7,7 @@ agents with MCP servers pointed at all of it. I also build small tools that remo
 friction, which is what the session below is about.
 
 <a href="https://github.com/lucianobosco/tunnels-manager">
-  <img src="terminal.svg" width="787" alt="A terminal session: a production database connection times out, tunnels-manager opens the tunnel, and the same command connects.">
+  <img src="terminal.svg" width="827" alt="A terminal session: a production database connection times out, tunnels-manager opens the tunnel, and the same command connects.">
 </a>
 
 The app in that session is **[tunnels-manager](https://github.com/lucianobosco/tunnels-manager)**,
@@ -23,7 +23,7 @@ luciano  -  software engineer, 14+ years  -  Malaga, ES
 
 luciano@mlg ~ $ bq query --nouse_legacy_sql 'SELECT count(*) FROM events.plays'
 4113920684        -- 4.1 B rows, 41 GB scanned, 2.3 s
-# most of the job is making a number like that cheap to ask for.
+# writing that query is nothing. making it scan 41 GB instead of 4 TB is the job.
 
 luciano@mlg ~ $ temporal workflow show -w ingest-2f9a --fields long
   3  ActivityTaskFailed      transcode   attempt 2   RetryState: InProgress

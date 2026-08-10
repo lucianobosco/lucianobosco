@@ -4,7 +4,7 @@ luciano  -  software engineer, 14+ years  -  Malaga, ES
 
 luciano@mlg ~ $ bq query --nouse_legacy_sql 'SELECT count(*) FROM events.plays'
 4113920684        -- 4.1 B rows, 41 GB scanned, 2.3 s
-# most of the job is making a number like that cheap to ask for.
+# writing that query is nothing. making it scan 41 GB instead of 4 TB is the job.
 
 luciano@mlg ~ $ temporal workflow show -w ingest-2f9a --fields long
   3  ActivityTaskFailed      transcode   attempt 2   RetryState: InProgress

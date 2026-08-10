@@ -6,7 +6,7 @@ say|140|# backends. the last years on the platforms behind video and stock conte
 gap|90|
 cmd|260|bq query --nouse_legacy_sql 'SELECT count(*) FROM events.plays'
 out|650|4113920684        -- 4.1 B rows, 41 GB scanned, 2.3 s
-say|150|# most of the job is making a number like that cheap to ask for.
+say|150|# writing that query is nothing. making it scan 41 GB instead of 4 TB is the job.
 gap|100|
 cmd|280|temporal workflow show -w ingest-2f9a --fields long
 out|400|  3  ActivityTaskFailed      transcode   attempt 2   RetryState: InProgress
