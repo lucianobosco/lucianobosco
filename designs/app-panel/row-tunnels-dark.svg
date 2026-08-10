@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 54" width="880" height="54" role="img">
+<title>tunnels-manager — IAP+port-forward, local :8443, gtk4 desktop app, ESTABLISHED, switch on</title>
+<style>
+ .ui{font-family:ui-sans-serif,-apple-system,"Segoe UI",Cantarell,"Noto Sans",sans-serif}
+ .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"DejaVu Sans Mono",monospace}
+ .t{fill:#eceaee}.d{fill:#94949f}.g{fill:#2ec27e}
+ .led{animation:breathe 2.4s ease-in-out infinite}
+ @keyframes breathe{0%,100%{opacity:.3}50%{opacity:.05}}
+ @media (prefers-reduced-motion: reduce){.led{animation:none}}
+</style>
+<rect x=".5" y=".5" width="879" height="53" rx="10" fill="#26262c" stroke="#ffffff1f"/>
+<rect x="0" y="0" width="3" height="54" rx="1.5" fill="#2ec27e"/>
+<circle class="led" cx="26" cy="27" r="8" fill="#2ec27e"/>
+<circle cx="26" cy="27" r="3.5" fill="#2ec27e"/>
+<text class="mono t" x="42" y="24" font-size="12.5" font-weight="700">tunnels-manager</text>
+<text class="ui d" x="42" y="39" font-size="10">gtk4 · python · IAP tunnels + port-forwards, GUI</text>
+<rect x="318" y="18" width="46" height="18" rx="5" fill="#62a0ea26"/>
+<text class="mono" x="325" y="30.5" font-size="9" fill="#62a0ea" font-weight="600">IAP</text>
+<text class="mono t" x="424" y="31" font-size="11">:8443</text>
+<text class="mono d" x="516" y="31" font-size="11">github.com/lucianobosco ↗</text>
+<text class="mono g" x="716" y="31" font-size="10.5" font-weight="600">ESTABLISHED</text>
+<rect x="824" y="18" width="34" height="18" rx="9" fill="#3584e4"/>
+<circle cx="849" cy="27" r="7" fill="#ffffff"/>
+</svg>

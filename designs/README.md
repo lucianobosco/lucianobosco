@@ -1,6 +1,6 @@
 # Designs
 
-Three concepts came out of a research run: 26 agents swept the web for profile READMEs
+Four designs came out of a research run: 26 agents swept the web for profile READMEs
 that do something unusual, a skeptic pass checked every promising technique against what
 GitHub's sanitiser and image proxy actually allow, and three judges — a hiring manager, a
 designer, and the person who would have to maintain it — scored the results.
@@ -9,7 +9,7 @@ designer, and the person who would have to maintain it — scored the results.
 | --- | --- | --- | --- |
 | [`terminal`](terminal/) | **7.3** | **built, live** | A terminal session about the work in eight acts: data at scale, a pipeline that recovers on its own, one upload across twelve services, agents with read-only access to production, the stack, and the tool that opens a tunnel to a database no laptop can reach |
 | [`terminal-long`](terminal-long/) | 7.3 | built | The same session, longer: adds a `SELECT * FROM luciano.stack` table and a `kubectl --watch` act. 920×877, 26.6 s |
-| [`concepts/app-panel`](concepts/app-panel.md) | 6.7 | concept only | The README *is* the app's window, and the private work is a `403` you can request access to |
+| [`app-panel`](app-panel/) | 6.7 | **built, not live** | The README *is* the app's window: three boxes — `localhost` → identity-aware proxy → `gke · cloud sql` — with packets crawling the wires between them, and the private work as a `403` you can request access to. Design doc: [`concepts/app-panel.md`](concepts/app-panel.md) |
 | [`concepts/live-probes`](concepts/live-probes.md) | 6.3 | concept only | The README is the app wired to live probes, regenerated on a schedule |
 
 Switch which one the profile shows:
@@ -18,6 +18,11 @@ Switch which one the profile shows:
 ./switch.sh                 # list them, marking the live one
 ./switch.sh terminal-long   # then commit terminal.svg and README.md
 ```
+
+`switch.sh` only knows about the terminal designs, which are a single SVG each.
+`app-panel` is six strips stacked in the README, so switching to it means editing the
+README by hand — see [`app-panel/README.md`](app-panel/README.md), and fix its
+resting-state bug first.
 
 ## How the built ones work
 

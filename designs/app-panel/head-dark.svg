@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 272" width="880" height="272" role="img" aria-label="tunnels-manager window">
+<title>tunnels-manager v14.2 — localhost to identity-aware proxy to gke/cloud-sql in europe-southwest1; connection string mysql://127.0.0.1:3307/stock-content established</title>
+<style>
+  .ui   { font-family: ui-sans-serif, -apple-system, "Segoe UI", Cantarell, "Noto Sans", sans-serif; }
+  .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "DejaVu Sans Mono", monospace; }
+  .t    { fill:#eceaee }  .d { fill:#94949f }  .b { fill:#62a0ea }  .g { fill:#2ec27e }
+  .hdr  { fill:#7c7c88; letter-spacing:1.2px; font-size:9px; font-weight:600 }
+
+  /* packets: straight horizontal wires, CSS transforms only */
+  .pkt  { animation: run 1.7s linear infinite; }
+  .pkt2 { animation: run2 1.7s linear infinite; }
+  .p2   { animation-delay:.28s } .p3 { animation-delay:.56s }
+  @keyframes run  { from { transform: translateX(0) }    to { transform: translateX(186px) } }
+  @keyframes run2 { from { transform: translateX(0) }    to { transform: translateX(-186px) } }
+
+  /* handshake ring around the proxy */
+  .ring { animation: spin 3.4s linear infinite; transform-origin: 440px 105px; }
+  @keyframes spin { to { transform: rotate(360deg) } }
+
+  /* live LED */
+  .led  { animation: breathe 2.4s ease-in-out infinite }
+  @keyframes breathe { 0%,100%{opacity:.25;r:9} 50%{opacity:.06;r:13} }
+
+  /* connection string: cover parked OFF-TEXT by default, wipes across once on load */
+  .cover { transform: translateX(624px); animation: wipe 1.5s .35s cubic-bezier(.2,.8,.2,1) 1 both; }
+  @keyframes wipe { from { transform: translateX(0) } to { transform: translateX(624px) } }
+  .caret { animation: blink 1.06s steps(1,end) infinite }
+  @keyframes blink { 0%,49%{opacity:1} 50%,100%{opacity:0} }
+
+  /* latency sparkline draws itself once */
+  .spark { stroke-dasharray:120; stroke-dashoffset:0; animation: draw 1.6s .3s ease-out 1 both }
+  @keyframes draw { from { stroke-dashoffset:120 } to { stroke-dashoffset:0 } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pkt,.pkt2,.ring,.led,.caret,.spark { animation: none }
+    .cover { animation: none }   /* stays parked off-text => final state */
+  }
+</style>
+
+<!-- window -->
+<rect x=".5" y=".5" width="879" height="271" rx="13" fill="#1c1c20" stroke="#ffffff1f"/>
+<path d="M.5 44V13.5A13 13 0 0 1 13.5.5h853A13 13 0 0 1 879.5 13.5V44Z" fill="#26262c"/>
+<line x1=".5" y1="44.5" x2="879.5" y2="44.5" stroke="#ffffff14"/>
+
+<!-- headerbar -->
+<rect x="17" y="14" width="16" height="16" rx="4" fill="none" stroke="#62a0ea" stroke-width="1.6"/>
+<path d="M21 22h8" stroke="#62a0ea" stroke-width="1.6"/>
+<text class="ui t" x="43" y="21" font-size="13" font-weight="700">tunnels-manager</text>
+<rect x="152" y="10.5" width="42" height="14" rx="7" fill="#62a0ea26"/>
+<text class="mono b" x="158" y="20.5" font-size="9">v14.2</text>
+<text class="ui d" x="43" y="34" font-size="10">lucianobosco · databases · data pipelines · video &amp; stock platforms · Málaga, ES</text>
+<rect x="700" y="11" width="96" height="22" rx="11" fill="#ffffff14" stroke="#ffffff1f"/>
+<text class="ui t" x="712" y="26" font-size="10.5">＋ New tunnel</text>
+<circle cx="822" cy="22" r="2" fill="#94949f"/><circle cx="829" cy="22" r="2" fill="#94949f"/><circle cx="836" cy="22" r="2" fill="#94949f"/>
+<circle cx="860" cy="22" r="11" fill="#ffffff14"/>
+<path d="M856 18l8 8M864 18l-8 8" stroke="#c9c9d1" stroke-width="1.5"/>
+
+<!-- ============ topology lane ============ -->
+<!-- wires -->
+<line x1="174" y1="105" x2="366" y2="105" stroke="#ffffff1f" stroke-width="2" stroke-dasharray="3 5"/>
+<line x1="514" y1="105" x2="706" y2="105" stroke="#ffffff1f" stroke-width="2" stroke-dasharray="3 5"/>
+<text class="mono d" x="222" y="95" font-size="9">oauth ↗ tcp:443</text>
+<text class="mono d" x="556" y="95" font-size="9">kubectl port-forward</text>
+<text class="mono d" x="228" y="123" font-size="9">gcloud iap</text>
+<text class="mono d" x="570" y="123" font-size="9">svc/stock-db :3306</text>
+<!-- egress packets -->
+<circle class="pkt"    cx="174" cy="105" r="3.4" fill="#62a0ea"/>
+<circle class="pkt p2" cx="174" cy="105" r="3.4" fill="#62a0ea" opacity=".7"/>
+<circle class="pkt p3" cx="174" cy="105" r="3.4" fill="#62a0ea" opacity=".4"/>
+<circle class="pkt"    cx="514" cy="105" r="3.4" fill="#62a0ea"/>
+<circle class="pkt p2" cx="514" cy="105" r="3.4" fill="#62a0ea" opacity=".7"/>
+<!-- ingress packet -->
+<circle class="pkt2 p3" cx="706" cy="105" r="2.6" fill="#2ec27e"/>
+<circle class="pkt2 p2" cx="366" cy="105" r="2.6" fill="#2ec27e"/>
+
+<!-- node A: localhost -->
+<rect x="24" y="76" width="150" height="58" rx="10" fill="#232329" stroke="#ffffff1f"/>
+<circle cx="41" cy="97" r="3.5" fill="#2ec27e"/>
+<text class="ui t" x="52" y="100" font-size="12" font-weight="600">localhost</text>
+<text class="mono d" x="38" y="118" font-size="9.5">127.0.0.1 · gtk4 · linux</text>
+
+<!-- node B: IAP -->
+<g class="ring" fill="none" stroke="#62a0ea" stroke-width="1.4" opacity=".55">
+  <circle cx="440" cy="105" r="33" stroke-dasharray="5 9"/>
+</g>
+<rect x="366" y="76" width="148" height="58" rx="10" fill="#232329" stroke="#62a0ea59"/>
+<path d="M383 99v-3a4 4 0 0 1 8 0v3" fill="none" stroke="#62a0ea" stroke-width="1.5"/>
+<rect x="380" y="99" width="14" height="10" rx="2.5" fill="#62a0ea"/>
+<text class="ui t" x="401" y="100" font-size="12" font-weight="600">identity-aware proxy</text>
+<text class="mono d" x="380" y="122" font-size="9.5">tunnel: ESTABLISHED · 41 ms</text>
+
+<!-- node C: cloud -->
+<rect x="706" y="76" width="150" height="58" rx="10" fill="#232329" stroke="#ffffff1f"/>
+<circle class="led" cx="723" cy="97" r="9" fill="#2ec27e"/>
+<circle cx="723" cy="97" r="3.5" fill="#2ec27e"/>
+<text class="ui t" x="734" y="100" font-size="12" font-weight="600">gke · cloud sql</text>
+<text class="mono d" x="720" y="118" font-size="9.5">europe-southwest1</text>
+
+<!-- ============ connection string field ============ -->
+<rect x="24" y="164" width="640" height="38" rx="9" fill="#131317" stroke="#ffffff24"/>
+<text class="mono" x="38" y="188" font-size="12.5" fill="#eceaee">mysql://127.0.0.1:<tspan class="b">3307</tspan>/stock-content <tspan class="g">✓ established</tspan></text>
+<rect class="caret" x="330" y="176" width="1.6" height="14" fill="#62a0ea"/>
+<g clip-path="url(#fieldclip)"><rect class="cover" x="30" y="167" width="628" height="32" fill="#131317"/></g>
+<clipPath id="fieldclip"><rect x="26" y="166" width="636" height="34" rx="8"/></clipPath>
+<rect x="676" y="164" width="86" height="38" rx="9" fill="#3584e4"/>
+<text class="ui" x="694" y="188" font-size="11.5" font-weight="600" fill="#ffffff">Copy ⧉</text>
+<text class="mono d" x="776" y="176" font-size="9">rtt 41 ms</text>
+<polyline class="spark" points="776,196 786,190 794,193 802,183 812,188 822,178 832,186 844,174 856,180"
+  fill="none" stroke="#2ec27e" stroke-width="1.4" stroke-linejoin="round"/>
+
+<!-- ============ column header for the linked rows below ============ -->
+<line x1="16" y1="226.5" x2="864" y2="226.5" stroke="#ffffff14"/>
+<text class="mono hdr" x="32" y="249">TUNNEL</text>
+<text class="mono hdr" x="322" y="249">TYPE</text>
+<text class="mono hdr" x="424" y="249">LOCAL</text>
+<text class="mono hdr" x="516" y="249">TARGET</text>
+<text class="mono hdr" x="716" y="249">STATE</text>
+<text class="mono hdr" x="828" y="249">OPEN</text>
+<text class="mono d" x="700" y="220" font-size="9" text-anchor="end">3 open · 1 connecting · 3 forbidden</text>
+</svg>
