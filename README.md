@@ -6,6 +6,10 @@ Databases, data pipelines and the platforms behind video and stock content — a
 agents with MCP servers pointed at all of it. If I have to do something twice, I automate
 it, so a good part of what I build is the tooling around the work rather than the work.
 
+The long version of those years — the roles, the products, the things that cannot go in a
+public repo — is on **[LinkedIn](https://www.linkedin.com/in/luciano-bosco/)**, which is also
+the fastest way to reach me.
+
 <picture>
   <img src="terminal.svg" width="100%" alt="A terminal session; the full transcript is in the text block below">
 </picture>
@@ -70,12 +74,6 @@ The hostname and the table rows are invented; the constraint is not.
 <picture>
   <img src="stack.svg" width="100%" alt="Stack: languages python, php, laravel, javascript. Data: mysql, bigquery. Platform: google cloud, kubernetes, temporal, aws. Agents: claude code, mcp servers, skills per runbook.">
 </picture>
-
-### Where to find me
-
-The long version of those 14 years — the roles, the products, the things that cannot go in a
-public repo — is on **[LinkedIn](https://www.linkedin.com/in/luciano-bosco/)**, which is also
-the fastest way to reach me.
 
 ### The one thing that is public
 
