@@ -11,77 +11,68 @@ public repo — is on **[LinkedIn](https://www.linkedin.com/in/luciano-bosco/)**
 the fastest way to reach me.
 
 <picture>
-  <img src="terminal.svg" width="100%" alt="A terminal session; the full transcript is in the text block below">
+  <img src="terminal.svg" width="100%" alt="A terminal session about the work: the scale of the data, a query that reads 41 GB instead of 4 TB, a pipeline that recovers on its own, one upload crossing twelve services, agents with read-only access to production, the stack, and the tool that opens a tunnel to a database no laptop can reach. The full transcript is in the text block below.">
 </picture>
 
 <details>
 <summary>Terminal session transcript (text)</summary>
 
 ```console
-luciano@mlg ~ $ whoami
-luciano  -  Software Engineer, 14+ years building backends  -  Malaga, ES
-# video and stock platforms. a few hundred thousand new assets a day.
+luciano@bosco $ whoami
+luciano  -  software engineer  -  14+ years building backends
+# I work on video and stock platforms: a few hundred thousand new files a day.
 
-luciano@mlg ~ $ bq query --nouse_legacy_sql 'SELECT count(*) FROM events.plays'
-4113920684        -- 4.1 B rows, 41 GB scanned, 2.3 s
-# writing that query is nothing. making it scan 41 GB instead of 4 TB is the job.
+luciano@bosco $ count published_resources
+  287,410,933 rows        41 GB read        2.3 s
+# writing that query takes a minute. making it read 41 GB instead of 4 TB is the job.
 
-luciano@mlg ~ $ ingest-stats --today
-  assets ingested   412 097        p99 end-to-end   41 s
-# throughput you can buy. the p99 is the part you get paid for.
+luciano@bosco $ stats today
+  files ingested   412,097        slowest 1%   41 s
+# 400,000 files is the easy half. the slowest 1% is the half people notice.
 
-luciano@mlg ~ $ temporal workflow show -w ingest-2f9a --fields long
-  3  ActivityTaskFailed      transcode   attempt 2   RetryState: InProgress
-  7  ActivityTaskCompleted   transcode   attempt 3   14m22s
-# a pipeline is not code that works. it is code that survives attempt 3.
+luciano@bosco $ workflow ingest-2f9a
+  transcode   attempt 1   failed
+  transcode   attempt 3   done in 14m
+# a pipeline is not code that works. it is code that recovers at 4am without me.
 
-luciano@mlg ~ $ curl -s traces/7c1e-ab3f | jq '.spans | length, .services | length'
-94        12        -- 94 spans across 12 services, one upload
-# microservices: each service works. the bug is in what happens between them.
+luciano@bosco $ trace upload-7c1e
+  12 services        94 steps        1 uploaded file
+# each of those twelve works on its own. the hard bugs live in between them.
 
-luciano@mlg ~ $ claude mcp list
-  databases    ready    read-only, 4 tools
-  kubernetes   ready    read-only, 11 tools
-  metrics      ready    read-only, 3 tools
-# mcp servers: how an agent reads production. read-only, so it can change nothing.
-# the model was never the hard part. wiring it safely to real systems is.
+luciano@bosco $ mcp list
+  databases     read-only
+  kubernetes    read-only
+  metrics       read-only
+# these are the doors an agent of mine can open. read-only: it can look, never touch.
 
-luciano@mlg ~ $ mysql -h 10.24.6.11 -P 3306 -u readonly catalog
-ERROR 2003 (HY000): Can't connect to MySQL server on '10.24.6.11:3306' (110)
-# nothing at work is reachable from a laptop. that is the point.
-luciano@mlg ~ $ tunnels-manager &
-[gtk4] tunnels-manager 0.1.0  -  8 tunnels in ~/.config/tunnels-manager/
-  catalog-db-prod       iap    13306   [ ==O ]
-# if I have to do a thing twice, I automate it. this one I did 9 times a day.
+luciano@bosco $ stack
+  languages   python  php  laravel  vue  vuex  wordpress
+  data        mysql  bigquery
+  platform    microservices  dapr  kubernetes  google cloud  aws  temporal
+  agents      claude code  mcp servers  skills per runbook
 
-luciano@mlg ~ $ mysql -h 127.0.0.1 -P 13306 -u readonly catalog
-luciano@mlg ~ $ SELECT * FROM luciano.repos WHERE visibility = 'private';
-ERROR 1142 (42000): SELECT command denied to user 'visitor'@'github'
--- 4 public repos. the other 14 years are on the other side of that error.
-# 14 years in, the list of things I still want to break open keeps growing.
+luciano@bosco $ tunnels-manager &
+  catalog-prod   iap tunnel   localhost:13306   [ ==O ]
+# nothing at work is reachable from a laptop. I open one of these nine times a day.
+# 14 years in, and the questions got better, not fewer.
 ```
 
-The hostname and the table rows are invented; the constraint is not.
+Those are pseudo-commands — the short version of the real ones — and every number is
+invented. The constraints they describe are not.
 
 </details>
 
-### What I work with
-
-<picture>
-  <img src="stack.svg" width="100%" alt="Stack: languages python, php, laravel, javascript. Data: mysql, bigquery. Platform: google cloud, kubernetes, temporal, aws. Agents: claude code, mcp servers, skills per runbook.">
-</picture>
-
 ### The one thing that is public
 
-The app in the session above is **[tunnels-manager](https://github.com/lucianobosco/tunnels-manager)**:
+The app in the last act is **[tunnels-manager](https://github.com/lucianobosco/tunnels-manager)**:
 Google Cloud IAP tunnels and port-forwards, one switch per tunnel, the connection string a
 click away. GTK4 and Python, 100% branch coverage of the logic, and it is pinned below.
 
-Everything else I work on is on the other side of that `ERROR 1142`.
+Everything else I work on lives behind that tunnel.
 
 ---
 
-<sub>The terminal above is not a recording. It is a 40-line text file rendered into an
-animated SVG by 200 lines of standard-library Python — no service, no dependency, nothing
+<sub>The terminal above is not a recording. It is a 37-line text file rendered into an
+animated SVG by 259 lines of standard-library Python — no service, no dependency, nothing
 to rate limit. Three more designs, and the research behind them, live in
 <a href="designs/"><code>designs/</code></a>.</sub>

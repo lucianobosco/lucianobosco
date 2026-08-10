@@ -1,44 +1,39 @@
-# KIND|delay_ms|text
-# kinds: cmd out err say dim tbl flip wait gap
+# KIND|delay_ms|text     kinds: cmd out err say dim tbl flip wait gap
+# v2 proposal: pseudo-commands, plain output, comments that stand alone.
 cmd|150|whoami
-out|180|luciano  -  Software Engineer, 14+ years building backends  -  Malaga, ES
-say|140|# video and stock platforms. a few hundred thousand new assets a day.
+out|180|luciano  -  software engineer  -  14+ years building backends
+say|140|# I work on video and stock platforms: a few hundred thousand new files a day.
 gap|90|
-cmd|260|bq query --nouse_legacy_sql 'SELECT count(*) FROM events.plays'
-out|650|4113920684        -- 4.1 B rows, 41 GB scanned, 2.3 s
-say|150|# writing that query is nothing. making it scan 41 GB instead of 4 TB is the job.
+cmd|240|count published_resources
+out|560|  287,410,933 rows        41 GB read        2.3 s
+say|150|# writing that query takes a minute. making it read 41 GB instead of 4 TB is the job.
 gap|100|
-cmd|250|ingest-stats --today
-out|320|  assets ingested   412 097        p99 end-to-end   41 s
-say|170|# throughput you can buy. the p99 is the part you get paid for.
+cmd|240|stats today
+out|320|  files ingested   412,097        slowest 1%   41 s
+say|170|# 400,000 files is the easy half. the slowest 1% is the half people notice.
 gap|100|
-cmd|280|temporal workflow show -w ingest-2f9a --fields long
-out|400|  3  ActivityTaskFailed      transcode   attempt 2   RetryState: InProgress
-out|300|  7  ActivityTaskCompleted   transcode   attempt 3   14m22s
-say|150|# a pipeline is not code that works. it is code that survives attempt 3.
+cmd|260|workflow ingest-2f9a
+out|380|  transcode   attempt 1   failed
+out|280|  transcode   attempt 3   done in 14m
+say|150|# a pipeline is not code that works. it is code that recovers at 4am without me.
 gap|100|
-cmd|300|curl -s traces/7c1e-ab3f | jq '.spans | length, .services | length'
-out|340|94        12        -- 94 spans across 12 services, one upload
-say|170|# microservices: each service works. the bug is in what happens between them.
+cmd|250|trace upload-7c1e
+out|340|  12 services        94 steps        1 uploaded file
+say|170|# each of those twelve works on its own. the hard bugs live in between them.
 gap|100|
-cmd|280|claude mcp list
-out|300|  databases    ready    read-only, 4 tools
-out|60|  kubernetes   ready    read-only, 11 tools
-out|60|  metrics      ready    read-only, 3 tools
-say|180|# mcp servers: how an agent reads production. read-only, so it can change nothing.
-say|150|# the model was never the hard part. wiring it safely to real systems is.
+cmd|220|mcp list
+out|300|  databases     read-only
+out|60|  kubernetes    read-only
+out|60|  metrics       read-only
+say|180|# these are the doors an agent of mine can open. read-only: it can look, never touch.
 gap|100|
-cmd|300|mysql -h 10.24.6.11 -P 3306 -u readonly catalog
-wait|600|
-err|0|ERROR 2003 (HY000): Can't connect to MySQL server on '10.24.6.11:3306' (110)
-say|180|# nothing at work is reachable from a laptop. that is the point.
+cmd|200|stack
+out|260|  {#5d6d7b}languages{/}   {#6ba5d9}python{/}  {#9b93d3}php{/}  {#ff5a4d}laravel{/}  {#4fc08d}vue{/}  {#3f9c74}vuex{/}  {#4a9cc4}wordpress{/}
+out|90|  {#5d6d7b}data{/}        {#4fb3d0}mysql{/}  {#7fb2ff}bigquery{/}
+out|90|  {#5d6d7b}platform{/}    {#d2a8ff}microservices{/}  {#8ad9c8}dapr{/}  {#7f9dff}kubernetes{/}  {#6ba0ff}google cloud{/}  {#ff9900}aws{/}  {#b6c2cf}temporal{/}
+out|90|  {#5d6d7b}agents{/}      {#e0876a}claude code{/}  {#79c0ff}mcp servers{/}  {#8b949e}skills per runbook{/}
+gap|100|
 cmd|250|tunnels-manager &
-out|280|[gtk4] tunnels-manager 0.1.0  -  8 tunnels in ~/.config/tunnels-manager/
-flip|100|  catalog-db-prod       iap    13306   [ {sw:O==|==O} ]
-say|200|# if I have to do a thing twice, I automate it. this one I did 9 times a day.
-gap|100|
-cmd|280|mysql -h 127.0.0.1 -P 13306 -u readonly catalog
-cmd|350|{k}SELECT{/} * {k}FROM{/} luciano.repos {k}WHERE{/} visibility = 'private';
-err|320|ERROR 1142 (42000): SELECT command denied to user 'visitor'@'github'
-say|150|-- 4 public repos. the other 14 years are on the other side of that error.
-say|900|# 14 years in, the list of things I still want to break open keeps growing.
+flip|180|  catalog-prod   iap tunnel   localhost:13306   [ {sw:O==|==O} ]
+say|200|# nothing at work is reachable from a laptop. I open one of these nine times a day.
+say|900|# 14 years in, and the questions got better, not fewer.

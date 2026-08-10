@@ -17,11 +17,11 @@ import html, re, sys
 FS, LH = 13, 19.5
 ADV = 0.62 * FS          # worst-case monospace advance (DejaVu .602, Menlo .600,
                          # SFMono .600, Consolas .550) -> grid is never too narrow
-PAD, TOP = 22, 44
+PAD, TOP = 22, 6            # no titlebar: the panel is only text
 CPS = 0.015              # 15 ms per typed character
 LEAD = 0.35              # dead air before the first keystroke
 TAIL = 0.80              # dead air after the last line
-PROMPT = "luciano@mlg ~ $ "
+PROMPT = "luciano@bosco $ "
 
 PAL = dict(bg="#0b0f14", chrome="#111820", rule="#1c242e", edge="#26313d",
            title="#8b98a5", stamp="#5d6d7b", ps="#3fb950", cmd="#8b96a1",
@@ -30,6 +30,7 @@ PAL = dict(bg="#0b0f14", chrome="#111820", rule="#1c242e", edge="#26313d",
 
 SW = re.compile(r"\{sw:([^|}]*)\|([^}]*)\}")
 KW = re.compile(r"\{k\}(.*?)\{/\}")
+CL = re.compile(r"\{(#[0-9a-f]{6})\}(.*?)\{/\}")
 
 
 def esc(s):
@@ -51,8 +52,9 @@ def tokens(s):
 
 
 def plain(s):
-    """visible text: keyword markers removed, switch marker collapsed to OFF"""
+    """visible text: every marker removed, switch marker collapsed to OFF"""
     s = SW.sub(lambda m: m.group(1), s)
+    s = CL.sub(lambda m: m.group(2), s)
     return "".join(t for t, _ in tokens(s))
 
 
@@ -174,6 +176,7 @@ def render(rows, total):
 
         cls = {"out": "out", "err": "err", "say": "say", "dim": "dim", "tbl": "tbl"}[k]
         inner = KW.sub(r'<tspan class="kw">\1</tspan>', esc(txt))
+        inner = CL.sub(r'<tspan fill="\1">\2</tspan>', inner)
         body.append(f'<text class="row {cls}" x="{x_of(0):.1f}" y="{y:.1f}"'
                     f' xml:space="preserve" {tl(plain(txt))}'
                     f' style="animation-delay:{r["t"]:.2f}s">{inner}</text>')
@@ -195,9 +198,8 @@ def render(rows, total):
     P = PAL
     svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}"
      font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace" font-size="{FS}">
-<title>Terminal session: a MySQL connection to a production host times out, tunnels-manager
-opens a Google Cloud IAP tunnel on local port 13306, the same command then connects, and
-selecting Luciano Bosco's private repositories returns permission denied.</title>
+<title>Terminal session: what Luciano Bosco works on, from the scale of the data to the
+agents that read it, ending on a permission error where the private work begins.</title>
 <style>
   /* Resting state is a STATIC declaration on every element. Animations only
      borrow an element on the way in: fill-mode backwards (or none), never
@@ -224,14 +226,7 @@ selecting Luciano Bosco's private repositories returns permission denied.</title
   }}
 </style>
 <rect width="{W}" height="{H}" rx="9" fill="{P['bg']}"/>
-<path d="M9 .5h{W-18}a8.5 8.5 0 0 1 8.5 8.5V{TOP}H.5V9A8.5 8.5 0 0 1 9 .5Z" fill="{P['chrome']}"/>
-<path d="M0 {TOP}.5H{W}" stroke="{P['rule']}"/>
 <rect x=".5" y=".5" width="{W-1}" height="{H-1}" rx="9" fill="none" stroke="{P['edge']}"/>
-<text x="{PAD}" y="27" fill="{P['title']}" font-size="12">luciano@mlg: ~/work</text>
-<text x="{W-PAD-26}" y="27" fill="{P['stamp']}" font-size="12" text-anchor="end">M&#193;LAGA</text>
-<g stroke="{P['title']}" stroke-width="1.3" stroke-linecap="round" opacity=".8">
-  <path d="M{W-PAD-9} 17l9 9M{W-PAD} 17l-9 9"/>
-</g>
 <g id="caret" style="transform:translate({px:.1f}px,{py:.1f}px)">
   <rect width="{ADV:.1f}" height="{FS+1}" y="{-FS+2.5:.1f}"/></g>
 {chr(10).join(body)}
