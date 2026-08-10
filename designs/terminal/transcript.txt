@@ -1,5 +1,5 @@
 luciano@mlg ~ $ whoami
-luciano  -  software engineer, 14+ years  -  Malaga, ES
+luciano  -  Software Engineer, 14+ years  -  Malaga, ES
 # backends. the last years on the platforms behind video and stock content.
 
 luciano@mlg ~ $ bq query --nouse_legacy_sql 'SELECT count(*) FROM events.plays'
@@ -33,4 +33,4 @@ luciano@mlg ~ $ SELECT * FROM luciano.repos WHERE visibility = 'private';
 ERROR 1142 (42000): SELECT command denied to user 'visitor'@'github'
 -- 4 public repos. the other 14 years are on the other side of that error.
 
-luciano@mlg ~ $ open github.com/lucianobosco/tunnels-manager
+luciano@mlg ~ $ 

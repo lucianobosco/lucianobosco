@@ -1,7 +1,7 @@
 # KIND|delay_ms|text
 # kinds: cmd out err say dim tbl flip wait gap
 cmd|150|whoami
-out|180|luciano  -  software engineer, 14+ years  -  Malaga, ES
+out|180|luciano  -  Software Engineer, 14+ years  -  Malaga, ES
 say|140|# backends. the last years on the platforms behind video and stock content.
 gap|90|
 cmd|260|bq query --nouse_legacy_sql 'SELECT count(*) FROM events.plays'
@@ -36,4 +36,4 @@ cmd|350|{k}SELECT{/} * {k}FROM{/} luciano.repos {k}WHERE{/} visibility = 'privat
 err|320|ERROR 1142 (42000): SELECT command denied to user 'visitor'@'github'
 say|150|-- 4 public repos. the other 14 years are on the other side of that error.
 gap|140|
-cmd|350|open github.com/lucianobosco/tunnels-manager
+cmd|900|

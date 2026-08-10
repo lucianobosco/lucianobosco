@@ -1,24 +1,19 @@
 <!-- design: terminal -->
 
-### Luciano Bosco — software engineer, 14+ years, Málaga
+## Luciano Bosco — Software Engineer, 14+ years, Málaga
 
 Databases, data pipelines and the platforms behind video and stock content — and lately,
 agents with MCP servers pointed at all of it. I also build small tools that remove daily
 friction, which is what the session below is about.
 
-<a href="https://github.com/lucianobosco/tunnels-manager">
-  <img src="terminal.svg" width="827" alt="A terminal session: a production database connection times out, tunnels-manager opens the tunnel, and the same command connects.">
-</a>
-
-The app in that session is **[tunnels-manager](https://github.com/lucianobosco/tunnels-manager)**,
-and it is pinned below. Everything else I work on is on the other side of that error.
+<img src="terminal.svg" width="100%" alt="A terminal session: 4.1 billion rows queried in BigQuery, a Temporal workflow surviving its third attempt, three read-only MCP servers, then a production database a laptop cannot reach and the tunnel that fixes it.">
 
 <details>
 <summary>The session as text</summary>
 
 ```console
 luciano@mlg ~ $ whoami
-luciano  -  software engineer, 14+ years  -  Malaga, ES
+luciano  -  Software Engineer, 14+ years  -  Malaga, ES
 # backends. the last years on the platforms behind video and stock content.
 
 luciano@mlg ~ $ bq query --nouse_legacy_sql 'SELECT count(*) FROM events.plays'
@@ -52,15 +47,51 @@ luciano@mlg ~ $ SELECT * FROM luciano.repos WHERE visibility = 'private';
 ERROR 1142 (42000): SELECT command denied to user 'visitor'@'github'
 -- 4 public repos. the other 14 years are on the other side of that error.
 
-luciano@mlg ~ $ open github.com/lucianobosco/tunnels-manager
+luciano@mlg ~ $
 ```
 
 The hostname and the table rows are invented; the constraint is not.
 
 </details>
 
-`Python` · `PHP / Laravel` · `JavaScript` · `MySQL` · `BigQuery` · `Google Cloud` ·
-`Kubernetes` · `Temporal` · `AWS` · `Claude Code` · `MCP servers` · `agent skills`
+### What I work with
 
-[LinkedIn](https://www.linkedin.com/in/luciano-bosco/) · the image above is generated from
-a 40-line text file, see [`designs/`](designs/)
+**Languages**
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) ![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white) ![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+
+**Data**
+
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white) ![BigQuery](https://img.shields.io/badge/BigQuery-669DF6?style=for-the-badge&logo=googlebigquery&logoColor=white)
+
+**Platform**
+
+![Google Cloud](https://img.shields.io/badge/Google_Cloud-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white) ![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white) ![Temporal](https://img.shields.io/badge/Temporal-000000?style=for-the-badge&logo=temporal&logoColor=white) ![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge)
+
+**Agents**
+
+![Claude Code](https://img.shields.io/badge/Claude_Code-D97757?style=for-the-badge&logo=anthropic&logoColor=white) ![MCP servers](https://img.shields.io/badge/MCP_servers-1F2937?style=for-the-badge&logo=modelcontextprotocol&logoColor=white) ![agent skills](https://img.shields.io/badge/agent_skills-1F2937?style=for-the-badge)
+
+### Where to find me
+
+The long version of those 14 years — the roles, the products, the things I cannot put in a
+public repo — is on LinkedIn. That is also the fastest way to reach me.
+
+<a href="https://www.linkedin.com/in/luciano-bosco/">
+  <img src="https://img.shields.io/badge/Luciano_Bosco_on_LinkedIn-0A66C2?style=for-the-badge" height="34" alt="Luciano Bosco on LinkedIn">
+</a>
+
+### The one thing that is public
+
+The app in the session above is **[tunnels-manager](https://github.com/lucianobosco/tunnels-manager)**:
+Google Cloud IAP tunnels and port-forwards, one switch per tunnel, the connection string a
+click away. GTK4 and Python, 100% branch coverage of the logic, and it is pinned below.
+
+Everything else I work on is on the other side of that `ERROR 1142`.
+
+---
+
+<sub>The terminal above is not a recording. It is a 40-line text file rendered into an
+animated SVG by 200 lines of standard-library Python — no service, no dependency, nothing
+to rate limit. Three more designs, and the research behind them, live in
+<a href="designs/"><code>designs/</code></a>.</sub>

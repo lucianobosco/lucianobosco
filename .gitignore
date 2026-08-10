@@ -1,3 +1,4 @@
 .leakwords.local
 __pycache__/
 *.pyc
+designs/terminal/shot.html
