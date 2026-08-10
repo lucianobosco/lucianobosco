@@ -37,6 +37,6 @@ out|90|  {#5d6d7b}data{/}        {#4fb3d0}mysql{/}  {#7fb2ff}bigquery{/}
 out|90|  {#5d6d7b}platform{/}    {#d2a8ff}microservices{/}  {#8ad9c8}dapr{/}  {#7f9dff}kubernetes{/}  {#6ba0ff}google cloud{/}  {#ff9900}aws{/}  {#b6c2cf}temporal{/}
 out|90|  {#5d6d7b}agents{/}      {#e0876a}claude code{/}  {#79c0ff}mcp servers{/}  {#8b949e}skills per runbook{/}
 gap|100|
-cmd|300|what-next
-say|900|# 14 years in, and the questions got better, not fewer.
+cmd|320|tinker
+say|900|# 14 years in, and I still take things apart to see how they answer.
 gap|100|

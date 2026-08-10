@@ -55,8 +55,8 @@ luciano@bosco $ stack
   platform    microservices  dapr  kubernetes  google cloud  aws  temporal
   agents      claude code  mcp servers  skills per runbook
 
-luciano@bosco $ what-next
-# 14 years in, and the questions got better, not fewer.
+luciano@bosco $ tinker
+# 14 years in, and I still take things apart to see how they answer.
 ```
 
 Those are pseudo-commands — the short version of the real ones — and every number is
@@ -82,11 +82,17 @@ timed. When nothing answers it says so instead of inventing a number.
 GTK4 and Python, no dependencies outside the desktop's own, 100% branch coverage of the
 logic.
 
+<hr>
+
 **[next-holiday](https://github.com/lucianobosco/next-holiday)** —
 [elproximofestivo.es](https://elproximofestivo.es), which answers when the next public
 holiday in Spain is and whether it can be turned into a long weekend. Astro with Preact
 islands on Cloudflare Workers, and no database: the holidays are JSON generated at build
 time, so serving a page costs no network call at all.
+
+<picture>
+  <img src="next-holiday.svg" width="100%" alt="A week where the holiday falls on Tuesday: asking for the Monday off joins the weekend into four days in a row">
+</picture>
 
 The part of it worth writing down is a timezone: the dates are computed in `Europe/Madrid`,
 never in the server's. Workers run in UTC, so for the last two hours of every Spanish day the

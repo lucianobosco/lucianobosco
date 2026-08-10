@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 226" width="1000" height="226" role="img">
+<title>A week where the public holiday falls on Tuesday: asking for the Monday off turns the
+weekend, the Monday and the holiday into four days off in a row -- a "puente".</title>
+<style>
+  .ui { font-family: ui-sans-serif, -apple-system, "Segoe UI", Cantarell, "Noto Sans", sans-serif }
+  .h    { font-size: 15px; font-weight: 700; fill: #2c2017 }
+  .sub  { font-size: 12.5px; fill: #6b5b48 }
+  .day  { font-size: 12px; letter-spacing: .04em }
+  .in-cell { font-size: 12.5px; font-weight: 700 }
+  .note { font-size: 12.5px; font-weight: 700 }
+
+  /* The resting state is the finished diagram: the day is asked for and the four days are
+     counted. The animation only replays how it got there, so an image with no animation at
+     all still explains the whole thing. */
+  .asked, .bar, .bar-note { animation: 6.0s linear infinite }
+  .asked      { animation-name: appear }
+  .bar        { animation-name: sweep }
+  .bar-note   { animation-name: appear-late }
+
+  @keyframes appear {
+    0%, 18% { opacity: 0 }
+    26%, 100% { opacity: 1 }
+  }
+  @keyframes sweep {
+    0%, 30% { transform: scaleX(0) }
+    52%, 100% { transform: scaleX(1) }
+  }
+  @keyframes appear-late {
+    0%, 52% { opacity: 0 }
+    60%, 100% { opacity: 1 }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .asked, .bar, .bar-note { animation: none }
+  }
+</style>
+<rect width="1000" height="226" rx="10" fill="#f4e9d2"/>
+<rect x=".5" y=".5" width="999" height="225" rx="9.5" fill="none" stroke="#e2d2b2"/>
+
+<text class="ui h" x="26" y="34">A <tspan font-style="italic">puente</tspan>, which is what the site is for</text>
+<text class="ui sub" x="26" y="55">The holiday falls on a Tuesday. Ask for the Monday, and the weekend joins in.</text>
+
+<rect x="26" y="92" width="108" height="74" rx="9" fill="#f4e9d2" stroke="#e2d2b2"/><rect x="146" y="92" width="108" height="74" rx="9" fill="#f4e9d2" stroke="#e2d2b2"/><rect x="266" y="92" width="108" height="74" rx="9" fill="#fbf5e8" stroke="#e2d2b2"/><rect x="386" y="92" width="108" height="74" rx="9" fill="#b03d1e" stroke="#b03d1e"/><rect x="506" y="92" width="108" height="74" rx="9" fill="#fbf5e8" stroke="#e2d2b2"/><rect x="626" y="92" width="108" height="74" rx="9" fill="#fbf5e8" stroke="#e2d2b2"/><rect x="746" y="92" width="108" height="74" rx="9" fill="#fbf5e8" stroke="#e2d2b2"/>
+<text class="day" x="80" y="80" text-anchor="middle" fill="#6b5b48">sáb</text><text class="day" x="200" y="80" text-anchor="middle" fill="#6b5b48">dom</text><text class="day" x="320" y="80" text-anchor="middle" fill="#6b5b48">lun</text><text class="day" x="440" y="80" text-anchor="middle" fill="#6b5b48">mar</text><text class="in-cell" x="440" y="136" text-anchor="middle" fill="#fbf5e8">festivo</text><text class="day" x="560" y="80" text-anchor="middle" fill="#6b5b48">mié</text><text class="day" x="680" y="80" text-anchor="middle" fill="#6b5b48">jue</text><text class="day" x="800" y="80" text-anchor="middle" fill="#6b5b48">vie</text>
+
+<!-- the day you ask for -->
+<g class="asked">
+  <rect x="266" y="92" width="108" height="74" rx="9" fill="#eed9a6" stroke="#c0851f" stroke-dasharray="4 3"/>
+  <text class="ui in-cell" x="320" y="136" text-anchor="middle" fill="#78500c">pides 1 día</text>
+</g>
+
+<!-- the run of days that ends up free -->
+<g class="bar" style="transform-origin: 26px 184px">
+  <rect x="26" y="184" width="468" height="7" rx="3.5" fill="#6c7138"/>
+</g>
+<text class="ui note bar-note" x="26" y="210" fill="#6c7138">four days off, one of them yours</text>
+<text class="ui sub bar-note" x="974" y="210" text-anchor="end">elproximofestivo.es</text>
+</svg>
