@@ -63,30 +63,15 @@ The hostname and the table rows are invented; the constraint is not.
 
 ### What I work with
 
-**Languages**
-
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) ![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white) ![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-
-**Data**
-
-![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white) ![BigQuery](https://img.shields.io/badge/BigQuery-669DF6?style=for-the-badge&logo=googlebigquery&logoColor=white)
-
-**Platform**
-
-![Google Cloud](https://img.shields.io/badge/Google_Cloud-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white) ![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white) ![Temporal](https://img.shields.io/badge/Temporal-000000?style=for-the-badge&logo=temporal&logoColor=white) ![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge)
-
-**Agents**
-
-![Claude Code](https://img.shields.io/badge/Claude_Code-D97757?style=for-the-badge&logo=anthropic&logoColor=white) ![MCP servers](https://img.shields.io/badge/MCP_servers-1F2937?style=for-the-badge&logo=modelcontextprotocol&logoColor=white) ![agent skills](https://img.shields.io/badge/agent_skills-1F2937?style=for-the-badge)
+<picture>
+  <img src="stack.svg" width="100%" alt="Stack: languages python, php, laravel, javascript. Data: mysql, bigquery. Platform: google cloud, kubernetes, temporal, aws. Agents: claude code, mcp servers, skills per runbook.">
+</picture>
 
 ### Where to find me
 
-The long version of those 14 years — the roles, the products, the things I cannot put in a
-public repo — is on LinkedIn. That is also the fastest way to reach me.
-
-<a href="https://www.linkedin.com/in/luciano-bosco/">
-  <img src="https://img.shields.io/badge/Luciano_Bosco_on_LinkedIn-0A66C2?style=for-the-badge" height="34" alt="Luciano Bosco on LinkedIn">
-</a>
+The long version of those 14 years — the roles, the products, the things that cannot go in a
+public repo — is on **[LinkedIn](https://www.linkedin.com/in/luciano-bosco/)**, which is also
+the fastest way to reach me.
 
 ### The one thing that is public
 
