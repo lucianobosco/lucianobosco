@@ -10,9 +10,8 @@ friction, which is what the session below is about.
   <img src="terminal.svg" width="787" alt="A terminal session: a production database connection times out, tunnels-manager opens the tunnel, and the same command connects.">
 </a>
 
-**[tunnels-manager](https://github.com/lucianobosco/tunnels-manager)** — the app in that
-session. Google Cloud IAP tunnels and port-forwards with a switch per tunnel and the
-connection string one click away. GTK4, Python, 100% branch coverage of the logic.
+The app in that session is **[tunnels-manager](https://github.com/lucianobosco/tunnels-manager)**,
+and it is pinned below. Everything else I work on is on the other side of that error.
 
 <details>
 <summary>The session as text</summary>
