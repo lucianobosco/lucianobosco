@@ -68,7 +68,7 @@ invented. The constraints they describe are not.
 
 **[tunnels-manager](https://github.com/lucianobosco/tunnels-manager)** — the app in the
 session above. Google Cloud IAP tunnels and `kubectl port-forward`, one switch per tunnel,
-and a click on a row draws what is actually between you and the far end:
+and a click on a row draws the path between you and the far end:
 
 <picture>
   <img src="tunnels-manager.svg" width="100%" alt="One row of the app, open: this machine, the local process and the target, with a pulse of light walking the path and the round trip measured through the tunnel">

@@ -51,16 +51,22 @@ def wire(x0: int, x1: int) -> str:
     )
 
 
-def pulse(x0: int, x1: int, cls: str) -> str:
-    """A bright stretch of wire that slides along it, invisible until the animation
-    brings it in -- so a still of this file is a quiet path, not a stray blob."""
-    span = 78
+#: The pulse is as long as the app draws it: a third of the hop, give or take.
+SPAN = 90
+
+
+def pulse(x0: int, cls: str) -> str:
+    """The light itself: a stretch of wire that brightens in the middle and fades out at
+    both ends, which is what the app paints in Cairo. Two flat bars read as a smear on a
+    dashed line; a gradient reads as light.
+
+    Invisible at rest -- the animation is what brings it in -- so a still of this file is a
+    quiet path rather than a stray blob.
+    """
     return (
-        f'<g class="pulse {cls}" transform="translate({x1 - x0 - span},0)">'
-        f'<rect x="{x0}" y="{WIRE_Y - 1.2}" width="{span}" height="2.4" rx="1.2" '
-        f'fill="{BLUE}" opacity=".55"/>'
-        f'<rect x="{x0 + span // 3}" y="{WIRE_Y - 1.6}" width="{span // 3}" height="3.2" '
-        f'rx="1.6" fill="#8ec0f5"/></g>'
+        f'<g class="pulse {cls}">'
+        f'<rect x="{x0}" y="{WIRE_Y - 1.8}" width="{SPAN}" height="3.6" '
+        f'fill="url(#glow)"/></g>'
     )
 
 
@@ -116,17 +122,26 @@ at under a millisecond.</title>
     0%   {{ transform: translate(0, 0); opacity: 0 }}
     4%   {{ opacity: 1 }}
     44%  {{ opacity: 1 }}
-    48%  {{ transform: translate({HOP1[1] - HOP1[0] - 78}px, 0); opacity: 0 }}
-    100% {{ transform: translate({HOP1[1] - HOP1[0] - 78}px, 0); opacity: 0 }}
+    48%  {{ transform: translate({HOP1[1] - HOP1[0] - SPAN}px, 0); opacity: 0 }}
+    100% {{ transform: translate({HOP1[1] - HOP1[0] - SPAN}px, 0); opacity: 0 }}
   }}
   @keyframes walk2 {{
     0%, 48% {{ transform: translate(0, 0); opacity: 0 }}
     52%  {{ opacity: 1 }}
     94%  {{ opacity: 1 }}
-    98%, 100% {{ transform: translate({HOP2[1] - HOP2[0] - 78}px, 0); opacity: 0 }}
+    98%, 100% {{ transform: translate({HOP2[1] - HOP2[0] - SPAN}px, 0); opacity: 0 }}
   }}
   @media (prefers-reduced-motion: reduce) {{ .pulse {{ animation: none }} }}
 </style>
+<defs>
+  <linearGradient id="glow" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="{BLUE}" stop-opacity="0"/>
+    <stop offset=".3" stop-color="{BLUE}" stop-opacity=".7"/>
+    <stop offset=".5" stop-color="#cfe6ff" stop-opacity="1"/>
+    <stop offset=".7" stop-color="{BLUE}" stop-opacity=".7"/>
+    <stop offset="1" stop-color="{BLUE}" stop-opacity="0"/>
+  </linearGradient>
+</defs>
 <rect width="{W}" height="{H}" rx="10" fill="{PAGE}"/>
 <rect x="3" y="1" width="{W - 4}" height="{H - 2}" rx="9" fill="{CARD}" stroke="{EDGE}"/>
 <rect x="0" y="1" width="3" height="{H - 2}" fill="{GREEN}"/>
@@ -154,12 +169,12 @@ stroke-linecap="round" stroke-linejoin="round"/>
 <text class="ui" x="{(HOP1[0] + HOP1[1]) // 2}" y="{WIRE_Y - 16}" font-size="10.5" \
 fill="{FAINT}" text-anchor="middle">port-forward</text>
 {wire(*HOP1)}
-{pulse(*HOP1, "hop1")}
+{pulse(HOP1[0], "hop1")}
 <text class="mono" x="{(HOP1[0] + HOP1[1]) // 2}" y="{WIRE_Y + 22}" font-size="10.5" \
 fill="{FAINT}" text-anchor="middle">python3</text>
 {node(420, 158, "local process", "established · &lt;1 ms", "proxy")}
 {wire(*HOP2)}
-{pulse(*HOP2, "hop2")}
+{pulse(HOP2[0], "hop2")}
 <text class="mono" x="{(HOP2[0] + HOP2[1]) // 2}" y="{WIRE_Y + 22}" font-size="10.5" \
 fill="{FAINT}" text-anchor="middle">svc/my-dashboard:80</text>
 {node(794, 170, "svc/my-dashboard:80", "kubernetes", "up")}
