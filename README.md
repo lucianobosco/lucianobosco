@@ -7,11 +7,11 @@ agents with MCP servers pointed at all of it. If I have to do something twice, I
 it, so a good part of what I build is the tooling around the work rather than the work.
 
 <picture>
-  <img src="terminal.svg" width="100%" alt="A terminal session: 4.1 billion rows queried in BigQuery, a Temporal workflow surviving its third attempt, three read-only MCP servers, then a production database a laptop cannot reach and the tunnel that fixes it.">
+  <img src="terminal.svg" width="100%" alt="A terminal session; the full transcript is in the text block below">
 </picture>
 
 <details>
-<summary>The session as text</summary>
+<summary>Terminal session transcript (text)</summary>
 
 ```console
 luciano@mlg ~ $ whoami
@@ -31,6 +31,10 @@ luciano@mlg ~ $ temporal workflow show -w ingest-2f9a --fields long
   7  ActivityTaskCompleted   transcode   attempt 3   14m22s
 # a pipeline is not code that works. it is code that survives attempt 3.
 
+luciano@mlg ~ $ curl -s traces/7c1e-ab3f | jq '.spans | length, .services | length'
+94        12        -- 94 spans across 12 services, one upload
+# microservices: the bug is never inside a service. it is between two of them.
+
 luciano@mlg ~ $ claude mcp list
   databases    ready    read-only, 4 tools
   kubernetes   ready    read-only, 11 tools
@@ -44,7 +48,6 @@ ERROR 2003 (HY000): Can't connect to MySQL server on '10.24.6.11:3306' (110)
 luciano@mlg ~ $ tunnels-manager &
 [gtk4] tunnels-manager 0.1.0  -  8 tunnels in ~/.config/tunnels-manager/
   catalog-db-prod       iap    13306   [ ==O ]
-  videos-db-replica     iap    13307   [ O== ]
   -> clipboard: mysql://readonly@127.0.0.1:13306/catalog
 # if I have to do a thing twice, I automate it. this one I did 9 times a day.
 
@@ -55,6 +58,11 @@ ERROR 1142 (42000): SELECT command denied to user 'visitor'@'github'
 
 luciano@mlg ~ $ open linkedin.com/in/luciano-bosco
 # the long version of the 14 years is there.
+
+luciano@mlg ~ $ tail -2 ~/notes/still-figuring-out.md
+  - whether p99 can be sold as a feature and not just an SLO
+  - what breaks first the day ingest doubles
+# 14 years in, that list only gets longer. that is the part I like.
 ```
 
 The hostname and the table rows are invented; the constraint is not.

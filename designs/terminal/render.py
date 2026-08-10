@@ -24,8 +24,8 @@ TAIL = 0.80              # dead air after the last line
 PROMPT = "luciano@mlg ~ $ "
 
 PAL = dict(bg="#0b0f14", chrome="#111820", rule="#1c242e", edge="#26313d",
-           title="#8b98a5", stamp="#5d6d7b", ps="#3fb950", cmd="#e6edf3",
-           out="#c0cbd6", say="#9aa8b5", dim="#6b7c8c", err="#f85149",
+           title="#8b98a5", stamp="#5d6d7b", ps="#3fb950", cmd="#8b96a1",
+           out="#c0cbd6", say="#a8c7e8", dim="#4c5561", err="#f85149",
            kw="#bc8cff", on="#7ee787", off="#6b7c8c", caret="#3fb950")
 
 SW = re.compile(r"\{sw:([^|}]*)\|([^}]*)\}")

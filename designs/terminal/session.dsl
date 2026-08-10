@@ -17,6 +17,10 @@ out|400|  3  ActivityTaskFailed      transcode   attempt 2   RetryState: InProgr
 out|300|  7  ActivityTaskCompleted   transcode   attempt 3   14m22s
 say|150|# a pipeline is not code that works. it is code that survives attempt 3.
 gap|100|
+cmd|300|curl -s traces/7c1e-ab3f | jq '.spans | length, .services | length'
+out|340|94        12        -- 94 spans across 12 services, one upload
+say|170|# microservices: the bug is never inside a service. it is between two of them.
+gap|100|
 cmd|280|claude mcp list
 out|300|  databases    ready    read-only, 4 tools
 out|60|  kubernetes   ready    read-only, 11 tools
@@ -31,7 +35,6 @@ say|180|# nothing at work is reachable from a laptop. that is the point.
 cmd|250|tunnels-manager &
 out|280|[gtk4] tunnels-manager 0.1.0  -  8 tunnels in ~/.config/tunnels-manager/
 flip|100|  catalog-db-prod       iap    13306   [ {sw:O==|==O} ]
-tbl|60|  videos-db-replica     iap    13307   [ O== ]
 out|750|  -> clipboard: mysql://readonly@127.0.0.1:13306/catalog
 say|200|# if I have to do a thing twice, I automate it. this one I did 9 times a day.
 gap|100|
@@ -40,5 +43,10 @@ cmd|350|{k}SELECT{/} * {k}FROM{/} luciano.repos {k}WHERE{/} visibility = 'privat
 err|320|ERROR 1142 (42000): SELECT command denied to user 'visitor'@'github'
 say|150|-- 4 public repos. the other 14 years are on the other side of that error.
 gap|140|
-cmd|400|open linkedin.com/in/luciano-bosco
-say|700|# the long version of the 14 years is there.
+cmd|350|open linkedin.com/in/luciano-bosco
+say|200|# the long version of the 14 years is there.
+gap|120|
+cmd|300|tail -2 ~/notes/still-figuring-out.md
+out|320|  - whether p99 can be sold as a feature and not just an SLO
+out|60|  - what breaks first the day ingest doubles
+say|900|# 14 years in, that list only gets longer. that is the part I like.

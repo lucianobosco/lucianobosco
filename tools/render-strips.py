@@ -10,10 +10,12 @@ LOGOS = json.loads((pathlib.Path(__file__).parent / "logos.json").read_text())
 # brand colours, nudged for contrast on a #0d1117 panel
 ROWS = [
     ("languages", [("python", "#6ba5d9", "Python"), ("php", "#9b93d3", "PHP"),
-                   ("laravel", "#ff5a4d", "Laravel"), ("javascript", "#f7df1e", "JavaScript")]),
+                   ("laravel", "#ff5a4d", "Laravel"), ("wordpress", "#4a9cc4", None),
+                   ("vue", "#4fc08d", None), ("vuex", "#3f9c74", None)]),
     ("data", [("mysql", "#4fb3d0", "MySQL"), ("bigquery", "#7fb2ff", "BigQuery")]),
-    ("platform", [("google cloud", "#6ba0ff", "Google_Cloud"), ("kubernetes", "#7f9dff", "Kubernetes"),
-                  ("temporal", "#b6c2cf", "Temporal"), ("aws", "#ff9900", None)]),
+    ("platform", [("microservices", "#d2a8ff", None), ("kubernetes", "#7f9dff", "Kubernetes"),
+                  ("google cloud", "#6ba0ff", "Google_Cloud"), ("aws", "#ff9900", None),
+                  ("temporal", "#b6c2cf", "Temporal")]),
     ("agents", [("claude code", "#e0876a", "Claude_Code"), ("mcp servers", "#79c0ff", "MCP"),
                 ("skills per runbook", "#8b949e", None)]),
 ]
