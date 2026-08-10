@@ -54,6 +54,8 @@ luciano@bosco $ stack
   data        mysql  bigquery
   platform    microservices  dapr  kubernetes  google cloud  aws  temporal
   agents      claude code  mcp servers  skills per runbook
+
+luciano@bosco $ what-next
 # 14 years in, and the questions got better, not fewer.
 ```
 
@@ -62,13 +64,23 @@ invented. The constraints they describe are not.
 
 </details>
 
-### The one thing that is public
+### Out in the open
 
-The app in the session is **[tunnels-manager](https://github.com/lucianobosco/tunnels-manager)**:
-Google Cloud IAP tunnels and port-forwards, one switch per tunnel, the connection string a
-click away. GTK4 and Python, 100% branch coverage of the logic, and it is pinned below.
+**[tunnels-manager](https://github.com/lucianobosco/tunnels-manager)** — the app in the
+session above. Google Cloud IAP tunnels and `kubectl port-forward`, one switch per tunnel,
+and a click on a row draws what is actually between you and the far end:
 
-Everything else I work on lives behind that tunnel.
+<picture>
+  <img src="tunnels-manager.png" width="100%" alt="One row of the app, open: this machine, the identity-aware proxy and the target, with the round trip measured through the tunnel">
+</picture>
+
+The round trip on the right is measured, not decorative. A tunnel forwards one TCP stream
+and offers no channel of its own, so timing the local connect would measure nothing — what
+crosses the whole path is the greeting the far end sends unprompted, and that is what is
+timed. When nothing answers it says so instead of inventing a number.
+
+GTK4 and Python, no dependencies outside the desktop's own, 100% branch coverage of the
+logic. More will land here; this is the one that was ready first.
 
 ---
 

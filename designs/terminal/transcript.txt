@@ -34,5 +34,7 @@ luciano@bosco $ stack
   data        mysql  bigquery
   platform    microservices  dapr  kubernetes  google cloud  aws  temporal
   agents      claude code  mcp servers  skills per runbook
+
+luciano@bosco $ what-next
 # 14 years in, and the questions got better, not fewer.
 
