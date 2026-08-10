@@ -6,7 +6,9 @@ Databases, data pipelines and the platforms behind video and stock content — a
 agents with MCP servers pointed at all of it. I also build small tools that remove daily
 friction, which is what the session below is about.
 
-<img src="terminal.svg" width="100%" alt="A terminal session: 4.1 billion rows queried in BigQuery, a Temporal workflow surviving its third attempt, three read-only MCP servers, then a production database a laptop cannot reach and the tunnel that fixes it.">
+<picture>
+  <img src="terminal.svg" width="100%" alt="A terminal session: 4.1 billion rows queried in BigQuery, a Temporal workflow surviving its third attempt, three read-only MCP servers, then a production database a laptop cannot reach and the tunnel that fixes it.">
+</picture>
 
 <details>
 <summary>The session as text</summary>
@@ -14,11 +16,15 @@ friction, which is what the session below is about.
 ```console
 luciano@mlg ~ $ whoami
 luciano  -  Software Engineer, 14+ years  -  Malaga, ES
-# backends. the last years on the platforms behind video and stock content.
+# backends. video and stock platforms: a few hundred thousand new assets a day.
 
 luciano@mlg ~ $ bq query --nouse_legacy_sql 'SELECT count(*) FROM events.plays'
 4113920684        -- 4.1 B rows, 41 GB scanned, 2.3 s
 # writing that query is nothing. making it scan 41 GB instead of 4 TB is the job.
+
+luciano@mlg ~ $ ingest-stats --today
+  assets ingested   412 097        p99 end-to-end   41 s
+# throughput you can buy. the p99 is the part you get paid for.
 
 luciano@mlg ~ $ temporal workflow show -w ingest-2f9a --fields long
   3  ActivityTaskFailed      transcode   attempt 2   RetryState: InProgress
