@@ -48,7 +48,6 @@ ERROR 2003 (HY000): Can't connect to MySQL server on '10.24.6.11:3306' (110)
 luciano@mlg ~ $ tunnels-manager &
 [gtk4] tunnels-manager 0.1.0  -  8 tunnels in ~/.config/tunnels-manager/
   catalog-db-prod       iap    13306   [ ==O ]
-  -> clipboard: mysql://readonly@127.0.0.1:13306/catalog
 # if I have to do a thing twice, I automate it. this one I did 9 times a day.
 
 luciano@mlg ~ $ mysql -h 127.0.0.1 -P 13306 -u readonly catalog

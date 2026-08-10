@@ -35,7 +35,6 @@ say|180|# nothing at work is reachable from a laptop. that is the point.
 cmd|250|tunnels-manager &
 out|280|[gtk4] tunnels-manager 0.1.0  -  8 tunnels in ~/.config/tunnels-manager/
 flip|100|  catalog-db-prod       iap    13306   [ {sw:O==|==O} ]
-out|750|  -> clipboard: mysql://readonly@127.0.0.1:13306/catalog
 say|200|# if I have to do a thing twice, I automate it. this one I did 9 times a day.
 gap|100|
 cmd|280|mysql -h 127.0.0.1 -P 13306 -u readonly catalog
