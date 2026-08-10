@@ -1,22 +1,3 @@
-<!-- design: terminal -->
-
-### Luciano Bosco — software engineer, 14 years, Málaga
-
-Databases, data pipelines and the platforms behind video and stock content. I also build
-small tools that remove daily friction, which is what the session below is about.
-
-<a href="https://github.com/lucianobosco/tunnels-manager">
-  <img src="terminal.svg" width="835" alt="A terminal session: a production database connection times out, tunnels-manager opens the tunnel, and the same command connects.">
-</a>
-
-**[tunnels-manager](https://github.com/lucianobosco/tunnels-manager)** — the app in that
-session. Google Cloud IAP tunnels and port-forwards with a switch per tunnel and the
-connection string one click away. GTK4, Python, 100% branch coverage of the logic.
-
-<details>
-<summary>The session as text</summary>
-
-```console
 luciano@mlg ~ $ whoami
 luciano  -  software engineer, 14 years  -  Malaga, ES
 
@@ -44,14 +25,3 @@ ingest-worker-4b8qz   1/1   Running   0     6s
 # the whole job is making that line boring. it has been for years.
 
 luciano@mlg ~ $ open github.com/lucianobosco/tunnels-manager
-```
-
-The hostname and the table rows are invented; the constraint is not.
-
-</details>
-
-`Python` · `PHP / Laravel` · `Go` · `JavaScript` · `MySQL` · `BigQuery` · `Google Cloud` ·
-`Kubernetes` · `Temporal` · `AWS`
-
-[LinkedIn](https://www.linkedin.com/in/luciano-bosco/) · the image above is generated from
-a 40-line text file, see [`designs/`](designs/)
