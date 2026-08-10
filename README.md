@@ -71,7 +71,7 @@ session above. Google Cloud IAP tunnels and `kubectl port-forward`, one switch p
 and a click on a row draws what is actually between you and the far end:
 
 <picture>
-  <img src="tunnels-manager.png" width="100%" alt="One row of the app, open: this machine, the identity-aware proxy and the target, with the round trip measured through the tunnel">
+  <img src="tunnels-manager.svg" width="100%" alt="One row of the app, open: this machine, the local process and the target, with a pulse of light walking the path and the round trip measured through the tunnel">
 </picture>
 
 The round trip on the right is measured, not decorative. A tunnel forwards one TCP stream
@@ -84,7 +84,9 @@ logic. More will land here; this is the one that was ready first.
 
 ---
 
-<sub>The terminal above is not a recording. It is a 37-line text file rendered into an
-animated SVG by 259 lines of standard-library Python — no service, no dependency, nothing
-to rate limit. Three more designs, and the research behind them, live in
+<sub>Neither image above is a recording or a screenshot. The terminal is a 38-line text
+file rendered into an animated SVG by 259 lines of standard-library Python; the row under
+<b>Out in the open</b> is drawn by <a href="tools/render-row.py"><code>tools/render-row.py</code></a>
+from the same numbers the app lays it out with. No service, no dependency, nothing to rate
+limit. Three more designs, and the research behind them, live in
 <a href="designs/"><code>designs/</code></a>.</sub>

@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 212" width="1000" height="212" role="img">
+<title>One row of tunnels-manager, open: a port-forward from this machine through a local
+process to svc/my-dashboard, established, with the round trip measured through the tunnel
+at under a millisecond.</title>
+<style>
+  .ui   { font-family: ui-sans-serif, -apple-system, "Segoe UI", Cantarell, "Noto Sans", sans-serif }
+  .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "DejaVu Sans Mono", monospace }
+  .b    { font-weight: 700 }
+  /* Decoration, and only decoration, moves: the pulse is invisible at rest and the
+     animation is what makes it appear. Where an animation is not run -- reduced motion, a
+     renderer that ignores CSS -- the wires are simply dashed and quiet, which is exactly
+     what the app draws for a tunnel that is idle. Nothing readable depends on it. */
+  .pulse { opacity: 0; transform: translate(0, 0); animation: walk1 2.4s linear infinite }
+  .hop2  { animation-name: walk2 }
+  /* Each pulse starts where its hop starts and ends where the hop ends, and the two take
+     turns: the first half of the cycle walks hop one, the second half walks hop two, so
+     the light arrives at the proxy before it leaves for the far end. */
+  @keyframes walk1 {
+    0%   { transform: translate(0, 0); opacity: 0 }
+    4%   { opacity: 1 }
+    44%  { opacity: 1 }
+    48%  { transform: translate(134px, 0); opacity: 0 }
+    100% { transform: translate(134px, 0); opacity: 0 }
+  }
+  @keyframes walk2 {
+    0%, 48% { transform: translate(0, 0); opacity: 0 }
+    52%  { opacity: 1 }
+    94%  { opacity: 1 }
+    98%, 100% { transform: translate(130px, 0); opacity: 0 }
+  }
+  @media (prefers-reduced-motion: reduce) { .pulse { animation: none } }
+</style>
+<rect width="1000" height="212" rx="10" fill="#16161a"/>
+<rect x="3" y="1" width="996" height="210" rx="9" fill="#26262c" stroke="#ffffff1f"/>
+<rect x="0" y="1" width="3" height="210" fill="#2ec27e"/>
+
+<!-- the header, as the closed row shows it -->
+<circle cx="22" cy="29" r="8" fill="#2ec27e" opacity=".22"/>
+<circle cx="22" cy="29" r="3.5" fill="#2ec27e"/>
+<text class="mono b" x="41" y="27" font-size="14" fill="#eceaee">Internal dashboard</text>
+<text class="ui" x="41" y="44" font-size="12" fill="#94949f">kubernetes</text>
+<rect x="322" y="19" width="78" height="20" rx="5" fill="#ffffff17"/>
+<text class="mono b" x="331" y="33" font-size="10.5" fill="#b0aeb5">PORT-FWD</text>
+<text class="mono" x="492" y="33" font-size="13" fill="#eceaee" text-anchor="end">:8096</text>
+<text class="mono" x="516" y="33" font-size="13" fill="#94949f">svc/my-dashboard:80</text>
+<text class="mono b" x="752" y="26" font-size="12" fill="#2ec27e">ESTABLISHED</text>
+<text class="mono" x="752" y="41" font-size="10.5" fill="#94949f">24s</text>
+<g fill="#94949f"><circle cx="872" cy="22" r="1.7"/><circle cx="872" cy="29" r="1.7"/><circle cx="872" cy="36" r="1.7"/></g>
+<rect x="890" y="17" width="46" height="24" rx="12" fill="#3584e4"/>
+<circle cx="924" cy="29" r="9" fill="#ffffff"/>
+<path d="M950 26l6 6 6-6" fill="none" stroke="#7c7c88" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+
+<!-- the path the row opens onto -->
+<rect x="36" y="76" width="156" height="58" rx="8" fill="#2b2b33" stroke="#ffffff1a"/><text class="ui b" x="50" y="99" font-size="13" fill="#eceaee">localhost</text><text class="mono" x="50" y="119" font-size="11" fill="#7c7c88">127.0.0.1 · :8096</text>
+<text class="ui" x="306" y="89" font-size="10.5" fill="#7c7c88" text-anchor="middle">port-forward</text>
+<line x1="200" y1="105" x2="412" y2="105" stroke="#ffffff24" stroke-width="2" stroke-dasharray="3 5"/>
+<g class="pulse hop1" transform="translate(134,0)"><rect x="200" y="103.8" width="78" height="2.4" rx="1.2" fill="#62a0ea" opacity=".55"/><rect x="226" y="103.4" width="26" height="3.2" rx="1.6" fill="#8ec0f5"/></g>
+<text class="mono" x="306" y="127" font-size="10.5" fill="#7c7c88" text-anchor="middle">python3</text>
+<rect x="420" y="76" width="158" height="58" rx="8" fill="#2b2b33" stroke="#62a0ea73"/><rect x="430" y="92" width="9" height="7" rx="1.6" fill="#eceaee"/><path d="M432 92v-2.4a2.5 2.5 0 0 1 5 0v2.4" fill="none" stroke="#eceaee" stroke-width="1.4"/><text class="ui b" x="445" y="99" font-size="13" fill="#eceaee">local process</text><text class="mono" x="434" y="119" font-size="11" fill="#7c7c88">established · &lt;1 ms</text>
+<line x1="578" y1="105" x2="786" y2="105" stroke="#ffffff24" stroke-width="2" stroke-dasharray="3 5"/>
+<g class="pulse hop2" transform="translate(130,0)"><rect x="578" y="103.8" width="78" height="2.4" rx="1.2" fill="#62a0ea" opacity=".55"/><rect x="604" y="103.4" width="26" height="3.2" rx="1.6" fill="#8ec0f5"/></g>
+<text class="mono" x="682" y="127" font-size="10.5" fill="#7c7c88" text-anchor="middle">svc/my-dashboard:80</text>
+<rect x="794" y="76" width="170" height="58" rx="8" fill="#2ec27e12" stroke="#2ec27e8c"/><circle cx="808" cy="94" r="3.4" fill="#2ec27e"/><text class="ui b" x="818" y="99" font-size="13" fill="#eceaee">svc/my-dashboard:80</text><text class="mono" x="808" y="119" font-size="11" fill="#7c7c88">kubernetes</text>
+
+<!-- what you paste, and the round trip -->
+<rect x="36" y="150" width="784" height="38" rx="8" fill="#16161a" stroke="#ffffff1f"/>
+<text class="mono" x="52" y="174" font-size="13" fill="#c9c9d1">127.0.0.1:8096</text>
+<text class="mono" x="804" y="174" font-size="11.5" fill="#2ec27e" text-anchor="end">✓ established</text>
+<rect x="830" y="152" width="56" height="34" rx="8" fill="#3584e4"/>
+<text class="ui b" x="858" y="174" font-size="12.5" fill="#ffffff" text-anchor="middle">Copy</text>
+<g transform="translate(900,150)"><path d="M0 22 L11 15 L22 19 L33 8 L44 14 L55 6 L66 11 L74 9" fill="none" stroke="#2ec27e" stroke-width="1.4"/><circle cx="74" cy="9" r="2.1" fill="#2ec27e"/></g>
+<text class="mono" x="974" y="192" font-size="10.5" fill="#7c7c88" text-anchor="end">rtt &lt;1 ms</text>
+</svg>
