@@ -51,7 +51,7 @@ luciano@mlg ~ $ tunnels-manager &
 luciano@mlg ~ $ mysql -h 127.0.0.1 -P 13306 -u readonly catalog
 luciano@mlg ~ $ SELECT * FROM luciano.repos WHERE visibility = 'private';
 ERROR 1142 (42000): SELECT command denied to user 'visitor'@'github'
--- 4 public repos. the other 14 years ship under NDA. that is the tell.
+-- 4 public repos. the other 14 years are on the other side of that error.
 
 luciano@mlg ~ $ open github.com/lucianobosco/tunnels-manager
 ```

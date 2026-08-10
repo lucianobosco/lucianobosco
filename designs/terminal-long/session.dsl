@@ -34,7 +34,7 @@ dim|40|+------------+-----------------------------------------------+-------+
 dim|400|5 rows in set (0.01 sec)
 cmd|600|{k}SELECT{/} * {k}FROM{/} luciano.repos {k}WHERE{/} visibility = 'private';
 err|500|ERROR 1142 (42000): SELECT command denied to user 'visitor'@'github'
-dim|150|-- 4 public repos. the other 14 years ship under NDA. this is the tell.
+dim|150|-- 4 public repos. the other 14 years are on the other side of that error.
 gap|200|
 cmd|350|kubectl -n platform get pods -l app=ingest --watch
 out|500|ingest-worker-4b8qz   0/1   Pending   0   0s
