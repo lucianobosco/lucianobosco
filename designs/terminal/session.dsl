@@ -35,5 +35,5 @@ out|90|  {#5d6d7b}agents{/}      {#e0876a}claude code{/}  {#79c0ff}mcp servers{/
 gap|100|
 cmd|250|tunnels-manager &
 flip|180|  catalog-prod   iap tunnel   localhost:13306   [ {sw:O==|==O} ]
-say|200|# nothing at work is reachable from a laptop. I open one of these nine times a day.
+say|200|# if I have to repeat something several times a day, I automate it.
 say|900|# 14 years in, and the questions got better, not fewer.
