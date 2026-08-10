@@ -74,14 +74,6 @@ and a click on a row draws the path between you and the far end:
   <img src="tunnels-manager.svg" width="100%" alt="One row of the app, open: this machine, the local process and the target, with a pulse of light walking the path and the round trip measured through the tunnel">
 </picture>
 
-The round trip on the right is measured, not decorative. A tunnel forwards one TCP stream
-and offers no channel of its own, so timing the local connect would measure nothing — what
-crosses the whole path is the greeting the far end sends unprompted, and that is what is
-timed. When nothing answers it says so instead of inventing a number.
-
-GTK4 and Python, no dependencies outside the desktop's own, 100% branch coverage of the
-logic.
-
 <hr>
 
 **[next-holiday](https://github.com/lucianobosco/next-holiday)** —
@@ -93,12 +85,6 @@ time, so serving a page costs no network call at all.
 <picture>
   <img src="next-holiday.svg" width="100%" alt="A week where the holiday falls on Tuesday: asking for the Monday off joins the weekend into four days in a row">
 </picture>
-
-The part of it worth writing down is a timezone: the dates are computed in `Europe/Madrid`,
-never in the server's. Workers run in UTC, so for the last two hours of every Spanish day the
-two calendars disagree and the countdown would be a day out. 100% branch coverage of the
-logic there too — and the test for that one asserts against UTC explicitly, because the first
-version passed on a laptop in Madrid and would have failed on a runner in CI.
 
 ---
 
