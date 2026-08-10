@@ -1,6 +1,6 @@
 <!-- design: terminal -->
 
-## Luciano Bosco — Software Engineer, 14+ years, Málaga
+## Luciano Bosco — Software Engineer · 14+ years building backends · Málaga
 
 Databases, data pipelines and the platforms behind video and stock content — and lately,
 agents with MCP servers pointed at all of it. If I have to do something twice, I automate
@@ -15,8 +15,8 @@ it, so a good part of what I build is the tooling around the work rather than th
 
 ```console
 luciano@mlg ~ $ whoami
-luciano  -  Software Engineer, 14+ years  -  Malaga, ES
-# backends. video and stock platforms: a few hundred thousand new assets a day.
+luciano  -  Software Engineer, 14+ years building backends  -  Malaga, ES
+# video and stock platforms. a few hundred thousand new assets a day.
 
 luciano@mlg ~ $ bq query --nouse_legacy_sql 'SELECT count(*) FROM events.plays'
 4113920684        -- 4.1 B rows, 41 GB scanned, 2.3 s

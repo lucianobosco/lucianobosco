@@ -1,8 +1,8 @@
 # KIND|delay_ms|text
 # kinds: cmd out err say dim tbl flip wait gap
 cmd|150|whoami
-out|180|luciano  -  Software Engineer, 14+ years  -  Malaga, ES
-say|140|# backends. video and stock platforms: a few hundred thousand new assets a day.
+out|180|luciano  -  Software Engineer, 14+ years building backends  -  Malaga, ES
+say|140|# video and stock platforms. a few hundred thousand new assets a day.
 gap|90|
 cmd|260|bq query --nouse_legacy_sql 'SELECT count(*) FROM events.plays'
 out|650|4113920684        -- 4.1 B rows, 41 GB scanned, 2.3 s

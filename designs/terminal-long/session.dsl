@@ -1,5 +1,5 @@
 cmd|300|whoami
-out|300|luciano  -  Software Engineer, 14 years.  Malaga, ES.
+out|300|luciano  -  Software Engineer, 14 years building backends.  Malaga, ES.
 dim|60|databases | data pipelines | the platforms behind video and stock content
 gap|150|
 cmd|350|mysql -h 10.24.6.11 -P 3306 -u readonly catalog
