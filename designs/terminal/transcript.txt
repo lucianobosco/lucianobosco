@@ -40,9 +40,6 @@ luciano@mlg ~ $ SELECT * FROM luciano.repos WHERE visibility = 'private';
 ERROR 1142 (42000): SELECT command denied to user 'visitor'@'github'
 -- 4 public repos. the other 14 years are on the other side of that error.
 
-luciano@mlg ~ $ open linkedin.com/in/luciano-bosco
-# the long version of the 14 years is there.
-
 luciano@mlg ~ $ tail -2 ~/notes/still-figuring-out.md
   - whether p99 can be sold as a feature and not just an SLO
   - what breaks first the day ingest doubles

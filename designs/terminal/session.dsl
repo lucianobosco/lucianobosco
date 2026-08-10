@@ -43,9 +43,6 @@ cmd|350|{k}SELECT{/} * {k}FROM{/} luciano.repos {k}WHERE{/} visibility = 'privat
 err|320|ERROR 1142 (42000): SELECT command denied to user 'visitor'@'github'
 say|150|-- 4 public repos. the other 14 years are on the other side of that error.
 gap|140|
-cmd|350|open linkedin.com/in/luciano-bosco
-say|200|# the long version of the 14 years is there.
-gap|120|
 cmd|300|tail -2 ~/notes/still-figuring-out.md
 out|320|  - whether p99 can be sold as a feature and not just an SLO
 out|60|  - what breaks first the day ingest doubles
