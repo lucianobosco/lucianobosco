@@ -3,8 +3,8 @@
 ## Luciano Bosco — Software Engineer, 14+ years, Málaga
 
 Databases, data pipelines and the platforms behind video and stock content — and lately,
-agents with MCP servers pointed at all of it. I also build small tools that remove daily
-friction, which is what the session below is about.
+agents with MCP servers pointed at all of it. If I have to do something twice, I automate
+it, so a good part of what I build is the tooling around the work rather than the work.
 
 <picture>
   <img src="terminal.svg" width="100%" alt="A terminal session: 4.1 billion rows queried in BigQuery, a Temporal workflow surviving its third attempt, three read-only MCP servers, then a production database a laptop cannot reach and the tunnel that fixes it.">
@@ -46,14 +46,15 @@ luciano@mlg ~ $ tunnels-manager &
   catalog-db-prod       iap    13306   [ ==O ]
   videos-db-replica     iap    13307   [ O== ]
   -> clipboard: mysql://readonly@127.0.0.1:13306/catalog
-# a weekend tool, because doing that by hand 9 times a day was absurd.
+# if I have to do a thing twice, I automate it. this one I did 9 times a day.
 
 luciano@mlg ~ $ mysql -h 127.0.0.1 -P 13306 -u readonly catalog
 luciano@mlg ~ $ SELECT * FROM luciano.repos WHERE visibility = 'private';
 ERROR 1142 (42000): SELECT command denied to user 'visitor'@'github'
 -- 4 public repos. the other 14 years are on the other side of that error.
 
-luciano@mlg ~ $
+luciano@mlg ~ $ open linkedin.com/in/luciano-bosco
+# the long version of the 14 years is there.
 ```
 
 The hostname and the table rows are invented; the constraint is not.

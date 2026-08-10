@@ -30,11 +30,12 @@ luciano@mlg ~ $ tunnels-manager &
   catalog-db-prod       iap    13306   [ ==O ]
   videos-db-replica     iap    13307   [ O== ]
   -> clipboard: mysql://readonly@127.0.0.1:13306/catalog
-# a weekend tool, because doing that by hand 9 times a day was absurd.
+# if I have to do a thing twice, I automate it. this one I did 9 times a day.
 
 luciano@mlg ~ $ mysql -h 127.0.0.1 -P 13306 -u readonly catalog
 luciano@mlg ~ $ SELECT * FROM luciano.repos WHERE visibility = 'private';
 ERROR 1142 (42000): SELECT command denied to user 'visitor'@'github'
 -- 4 public repos. the other 14 years are on the other side of that error.
 
-luciano@mlg ~ $ 
+luciano@mlg ~ $ open linkedin.com/in/luciano-bosco
+# the long version of the 14 years is there.
