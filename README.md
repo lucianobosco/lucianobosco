@@ -11,7 +11,7 @@ public repo — is on **[LinkedIn](https://www.linkedin.com/in/luciano-bosco/)**
 the fastest way to reach me.
 
 <picture>
-  <img src="terminal.svg" width="100%" alt="A terminal session about the work: the scale of the data, a query that reads 41 GB instead of 4 TB, a pipeline that recovers on its own, one upload crossing twelve services, agents with read-only access to production, the stack, and the tool that opens a tunnel to a database no laptop can reach. The full transcript is in the text block below.">
+  <img src="terminal.svg" width="100%" alt="A terminal session about the work: the scale of the data, a query that reads 41 GB instead of 4 TB, a pipeline that recovers on its own, one upload crossing twelve services, agents with read-only access to production, the tool that opens a tunnel to a database no laptop can reach, and the stack it all runs on. The full transcript is in the text block below.">
 </picture>
 
 <details>
@@ -45,15 +45,15 @@ luciano@bosco $ mcp list
   metrics       read-only
 # these are the doors an agent of mine can open. read-only: it can look, never touch.
 
+luciano@bosco $ tunnels-manager &
+  catalog-prod   iap tunnel   localhost:13306   [ ==O ]
+# if I have to repeat something several times a day, I automate it.
+
 luciano@bosco $ stack
   languages   python  php  laravel  vue  vuex  wordpress
   data        mysql  bigquery
   platform    microservices  dapr  kubernetes  google cloud  aws  temporal
   agents      claude code  mcp servers  skills per runbook
-
-luciano@bosco $ tunnels-manager &
-  catalog-prod   iap tunnel   localhost:13306   [ ==O ]
-# if I have to repeat something several times a day, I automate it.
 # 14 years in, and the questions got better, not fewer.
 ```
 
@@ -64,7 +64,7 @@ invented. The constraints they describe are not.
 
 ### The one thing that is public
 
-The app in the last act is **[tunnels-manager](https://github.com/lucianobosco/tunnels-manager)**:
+The app in the session is **[tunnels-manager](https://github.com/lucianobosco/tunnels-manager)**:
 Google Cloud IAP tunnels and port-forwards, one switch per tunnel, the connection string a
 click away. GTK4 and Python, 100% branch coverage of the logic, and it is pinned below.
 

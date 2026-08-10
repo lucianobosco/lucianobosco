@@ -27,13 +27,14 @@ out|60|  kubernetes    read-only
 out|60|  metrics       read-only
 say|180|# these are the doors an agent of mine can open. read-only: it can look, never touch.
 gap|100|
+cmd|250|tunnels-manager &
+flip|180|  catalog-prod   iap tunnel   localhost:13306   [ {sw:O==|==O} ]
+say|200|# if I have to repeat something several times a day, I automate it.
+gap|100|
 cmd|200|stack
 out|260|  {#5d6d7b}languages{/}   {#6ba5d9}python{/}  {#9b93d3}php{/}  {#ff5a4d}laravel{/}  {#4fc08d}vue{/}  {#3f9c74}vuex{/}  {#4a9cc4}wordpress{/}
 out|90|  {#5d6d7b}data{/}        {#4fb3d0}mysql{/}  {#7fb2ff}bigquery{/}
 out|90|  {#5d6d7b}platform{/}    {#d2a8ff}microservices{/}  {#8ad9c8}dapr{/}  {#7f9dff}kubernetes{/}  {#6ba0ff}google cloud{/}  {#ff9900}aws{/}  {#b6c2cf}temporal{/}
 out|90|  {#5d6d7b}agents{/}      {#e0876a}claude code{/}  {#79c0ff}mcp servers{/}  {#8b949e}skills per runbook{/}
-gap|100|
-cmd|250|tunnels-manager &
-flip|180|  catalog-prod   iap tunnel   localhost:13306   [ {sw:O==|==O} ]
-say|200|# if I have to repeat something several times a day, I automate it.
 say|900|# 14 years in, and the questions got better, not fewer.
+gap|100|

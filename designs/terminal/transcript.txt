@@ -25,13 +25,14 @@ luciano@bosco $ mcp list
   metrics       read-only
 # these are the doors an agent of mine can open. read-only: it can look, never touch.
 
+luciano@bosco $ tunnels-manager &
+  catalog-prod   iap tunnel   localhost:13306   [ ==O ]
+# if I have to repeat something several times a day, I automate it.
+
 luciano@bosco $ stack
   languages   python  php  laravel  vue  vuex  wordpress
   data        mysql  bigquery
   platform    microservices  dapr  kubernetes  google cloud  aws  temporal
   agents      claude code  mcp servers  skills per runbook
-
-luciano@bosco $ tunnels-manager &
-  catalog-prod   iap tunnel   localhost:13306   [ ==O ]
-# if I have to repeat something several times a day, I automate it.
 # 14 years in, and the questions got better, not fewer.
+
