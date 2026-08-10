@@ -29,3 +29,5 @@ it has 100% branch coverage without a single test opening a window.
 ### Elsewhere
 
 [LinkedIn](https://www.linkedin.com/in/luciano-bosco/)
+
+<!-- Profile README · github.com/lucianobosco -->
