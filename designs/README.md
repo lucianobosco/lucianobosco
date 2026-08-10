@@ -7,7 +7,7 @@ designer, and the person who would have to maintain it — scored the results.
 
 | Design | Score | State | What it is |
 | --- | --- | --- | --- |
-| [`terminal`](terminal/) | **7.3** | **built, live** | A terminal session: a production database connection times out, his own app opens the tunnel, and his bio comes back as a MySQL result set |
+| [`terminal`](terminal/) | **7.3** | **built, live** | A terminal session about the work: data at scale, pipelines that survive retries, agents with MCP — then the production database that a laptop cannot reach, and the tool that fixes it |
 | [`terminal-long`](terminal-long/) | 7.3 | built | The same session, longer: adds a `SELECT * FROM luciano.stack` table and a `kubectl --watch` act. 920×877, 26.6 s |
 | [`concepts/app-panel`](concepts/app-panel.md) | 6.7 | concept only | The README *is* the app's window, and the private work is a `403` you can request access to |
 | [`concepts/live-probes`](concepts/live-probes.md) | 6.3 | concept only | The README is the app wired to live probes, regenerated on a schedule |

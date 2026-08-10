@@ -26,11 +26,12 @@ dim|400|+------------+-----------------------------------------------+-------+
 dim|40|| layer      | tools                                         | years |
 dim|40|+------------+-----------------------------------------------+-------+
 out|40|| databases  | MySQL, BigQuery, query plans at 03:00         |    14 |
-out|40|| services   | Python, PHP/Laravel, Go, some Vue             |    12 |
+out|40|| services   | Python, PHP/Laravel, some Vue                  |    12 |
 out|40|| platform   | Google Cloud, Kubernetes, a little AWS        |     8 |
 out|40|| pipelines  | Temporal, batch that has to survive a retry   |     6 |
+out|40|| agents     | Claude Code, MCP servers, a skill per runbook  |     2 |
 dim|40|+------------+-----------------------------------------------+-------+
-dim|400|4 rows in set (0.01 sec)
+dim|400|5 rows in set (0.01 sec)
 cmd|600|{k}SELECT{/} * {k}FROM{/} luciano.repos {k}WHERE{/} visibility = 'private';
 err|500|ERROR 1142 (42000): SELECT command denied to user 'visitor'@'github'
 dim|150|-- 4 public repos. the other 14 years ship under NDA. this is the tell.
