@@ -98,6 +98,18 @@ time, so serving a page costs no network call at all.
   <img src="next-holiday.svg" width="100%" alt="A week where the holiday falls on Tuesday: asking for the Monday off joins the weekend into four days in a row">
 </picture>
 
+<hr>
+
+**[ddd-hexagonal-php](https://github.com/lucianobosco/ddd-hexagonal-php)** — a hiring
+exercise from 2023, published as it was and still running. Three years later the API it
+was built on was deprecated, and the fix was one new file behind the interface that was
+already there — no use case, no domain object and no test changed. Which is the only
+evidence worth having that the boundary was in the right place:
+
+<picture>
+  <img src="ddd-hexagonal-php.svg" width="100%" alt="The dependency arrow running from infrastructure to application to domain, and the port below it with two adapters: the REST one struck out because its API version was deprecated, and the fixture one that replaced it">
+</picture>
+
 ---
 
 <sub>Not one of the images above is a recording or a screenshot. The terminal is a
