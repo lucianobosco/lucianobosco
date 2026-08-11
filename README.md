@@ -76,6 +76,18 @@ and a click on a row draws the path between you and the far end:
 
 <hr>
 
+**[fluent-speak](https://github.com/lucianobosco/fluent-speak)** — a programming assistant
+you talk to, in Rioplatense Spanish, where every model in the loop was picked by measuring
+instead of by ear: twelve transcription combinations, thirteen voices and seventeen
+reasoning models, all on one GPU. Two of the three winners are **not** what the decision
+rule chose, and the repository argues why in each case:
+
+<picture>
+  <img src="fluent-speak.svg" width="100%" alt="The three stages of the loop with what each one measured: heard by large-v3-turbo at 2.0% word error, answered by llama3.1:8b in 0.75 seconds, spoken back at 1.4% round-trip error — and underneath, the same phrase said and heard, with one word already wrong">
+</picture>
+
+<hr>
+
 **[next-holiday](https://github.com/lucianobosco/next-holiday)** —
 [elproximofestivo.es](https://elproximofestivo.es), which answers when the next public
 holiday in Spain is and whether it can be turned into a long weekend. Astro with Preact
@@ -88,9 +100,9 @@ time, so serving a page costs no network call at all.
 
 ---
 
-<sub>Neither image above is a recording or a screenshot. The terminal is a 38-line text
-file rendered into an animated SVG by 259 lines of standard-library Python; the row under
-<b>Out in the open</b> is drawn by <a href="tools/render-row.py"><code>tools/render-row.py</code></a>
-from the same numbers the app lays it out with. No service, no dependency, nothing to rate
-limit. Three more designs, and the research behind them, live in
-<a href="designs/"><code>designs/</code></a>.</sub>
+<sub>Not one of the images above is a recording or a screenshot. The terminal is a
+38-line text file rendered into an animated SVG by 259 lines of standard-library Python,
+and each drawing under <b>Out in the open</b> is generated the same way by a script in
+<a href="tools/"><code>tools/</code></a> — from the same numbers the project itself reports.
+No service, no dependency, nothing to rate limit. Three more designs, and the research
+behind them, live in <a href="designs/"><code>designs/</code></a>.</sub>
